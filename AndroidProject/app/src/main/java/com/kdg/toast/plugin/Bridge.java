@@ -10,22 +10,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
-import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import android.provider.Settings;
 import android.util.Log;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Arrays;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import static android.Manifest.permission.ACTIVITY_RECOGNITION;
-import static androidx.core.app.ActivityCompat.requestPermissions;
+import java.util.Calendar;
+import java.util.Date;
 
 public final class Bridge extends Application {
     static int summarySteps;
@@ -116,6 +108,7 @@ public final class Bridge extends Application {
         Log.i("PEDOMETER", "FROM BRIDGE CLASS - GetCurrentSteps:"+summarySteps);
         return summarySteps;
     }
+
     public static String SyncData(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(appContext);
         int stepsToSend=GetCurrentSteps();
